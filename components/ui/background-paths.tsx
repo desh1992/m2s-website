@@ -17,6 +17,40 @@ function FloatingPaths({ position }: { position: number }) {
         width: 0.5 + i * 0.03,
     }));
 
+    // Define aurora gradient colors with vibrant, saturated colors
+    const auroraGradients = [
+        // Aurora 1: Vibrant Blue-Purple-Pink with bright Green-Orange-Yellow
+        {
+            primary: ['#2563eb', '#a855f7', '#ec4899'],
+            aurora: ['#10b981', '#f97316', '#eab308']
+        },
+        // Aurora 2: Bright Green-Blue-Purple with vivid Red-Orange-Pink
+        {
+            primary: ['#10b981', '#2563eb', '#a855f7'],
+            aurora: ['#ef4444', '#f97316', '#ec4899']
+        },
+        // Aurora 3: Vivid Orange-Red-Pink with bright Cyan-Green-Blue
+        {
+            primary: ['#f97316', '#ef4444', '#ec4899'],
+            aurora: ['#06b6d4', '#10b981', '#2563eb']
+        },
+        // Aurora 4: Bright Purple-Pink-Orange with vivid Green-Cyan-Blue
+        {
+            primary: ['#a855f7', '#ec4899', '#f97316'],
+            aurora: ['#10b981', '#06b6d4', '#2563eb']
+        },
+        // Aurora 5: Vivid Cyan-Green-Blue with bright Red-Pink-Orange
+        {
+            primary: ['#06b6d4', '#10b981', '#2563eb'],
+            aurora: ['#ef4444', '#ec4899', '#f97316']
+        },
+        // Aurora 6: Bright Red-Orange-Green with vivid Blue-Purple-Pink
+        {
+            primary: ['#ef4444', '#f97316', '#10b981'],
+            aurora: ['#2563eb', '#a855f7', '#ec4899']
+        }
+    ];
+
     return (
         <div className="absolute inset-0 pointer-events-none">
             <svg
@@ -25,26 +59,60 @@ function FloatingPaths({ position }: { position: number }) {
                 fill="none"
             >
                 <title>Background Paths</title>
-                {paths.map((path) => (
-                    <motion.path
-                        key={path.id}
-                        d={path.d}
-                        stroke="currentColor"
-                        strokeWidth={path.width}
-                        strokeOpacity={0.1 + path.id * 0.03}
-                        initial={{ pathLength: 0.3, opacity: 0.6 }}
-                        animate={{
-                            pathLength: 1,
-                            opacity: [0.3, 0.6, 0.3],
-                            pathOffset: [0, 1, 0],
-                        }}
+                <defs>
+                    {paths.map((path) => {
+                        const gradientGroup = Math.floor(path.id / 6) % auroraGradients.length;
+                        const { primary, aurora } = auroraGradients[gradientGroup];
+                        return (
+                            <linearGradient
+                                key={`aurora-gradient-${path.id}`}
+                                id={`aurora-gradient-${path.id}`}
+                                x1="0%"
+                                y1="0%"
+                                x2="100%"
+                                y2="100%"
+                            >
+                                <stop offset="0%" stopColor={primary[0]} stopOpacity="0.9">
+                                    <animate attributeName="stop-color" 
+                                        values={`${primary[0]};${aurora[0]};${primary[0]}`}
+                                        dur="4s" repeatCount="indefinite" />
+                                </stop>
+                                <stop offset="50%" stopColor={primary[1]} stopOpacity="1.0">
+                                    <animate attributeName="stop-color" 
+                                        values={`${primary[1]};${aurora[1]};${primary[1]}`}
+                                        dur="4s" repeatCount="indefinite" begin="1s" />
+                                </stop>
+                                <stop offset="100%" stopColor={primary[2]} stopOpacity="0.9">
+                                    <animate attributeName="stop-color" 
+                                        values={`${primary[2]};${aurora[2]};${primary[2]}`}
+                                        dur="4s" repeatCount="indefinite" begin="2s" />
+                                </stop>
+                            </linearGradient>
+                        );
+                    })}
+                </defs>
+                {paths.map((path) => {
+                    return (
+                        <motion.path
+                            key={path.id}
+                            d={path.d}
+                            stroke={`url(#aurora-gradient-${path.id})`}
+                            strokeWidth={path.width}
+                            strokeOpacity={0.5 + path.id * 0.05}
+                            initial={{ pathLength: 0.3, opacity: 0.8 }}
+                            animate={{
+                                pathLength: 1,
+                                opacity: [0.6, 1.0, 0.6],
+                                pathOffset: [0, 1, 0],
+                            }}
                         transition={{
                             duration: 20 + Math.random() * 10,
                             repeat: Number.POSITIVE_INFINITY,
                             ease: "linear",
                         }}
-                    />
-                ))}
+                        />
+                    );
+                })}
             </svg>
         </div>
     );
