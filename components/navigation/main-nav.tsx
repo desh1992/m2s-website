@@ -75,7 +75,6 @@ export function MainNav() {
             className="flex items-center space-x-2"
           >
             <div className="w-8 h-8 bg-gradient-to-br from-brand-600 to-brand-800 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">M2S</span>
             </div>
             <span className="text-xl font-bold text-text-primary">M2S Tech Solutions</span>
           </motion.div>

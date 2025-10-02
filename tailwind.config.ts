@@ -272,18 +272,49 @@ const config: Config = {
         },
         "marquee": {
           "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(-50%)" },
         },
         "caret-blink": {
           "0%, 50%": { opacity: "1" },
           "51%, 100%": { opacity: "0" },
         },
+        "background-gradient": {
+          "0%, 100%": {
+            transform: "translate(0, 0) scale(1)",
+            animationDelay: "var(--background-gradient-delay, 0s)",
+          },
+          "25%": {
+            transform: "translate(40px, -30px) scale(1.15)",
+          },
+          "50%": {
+            transform: "translate(-25px, 35px) scale(0.85)",
+          },
+          "75%": {
+            transform: "translate(30px, 20px) scale(1.2)",
+          },
+        },
+        "float": {
+          "0%, 100%": {
+            transform: "translateY(0px) translateX(0px) scale(1)",
+          },
+          "25%": {
+            transform: "translateY(-25px) translateX(15px) scale(1.1)",
+          },
+          "50%": {
+            transform: "translateY(20px) translateX(-20px) scale(0.9)",
+          },
+          "75%": {
+            transform: "translateY(-15px) translateX(10px) scale(1.05)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "marquee": "var(--animate-marquee)",
+        "marquee": "marquee var(--duration, 30s) linear infinite",
         "caret-blink": "var(--animate-caret-blink)",
+        "background-gradient": "background-gradient var(--background-gradient-speed, 15s) cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite",
+        "float": "float 6s ease-in-out infinite",
       },
     },
   },
