@@ -1,5 +1,14 @@
-import { BackgroundPaths } from "@/components/ui/background-paths"
+import AnimatedTitle from "@/components/ui/animated-title";
 
-export function DemoBackgroundPaths() {
-    return <BackgroundPaths title="Background Paths" />
-}
+const Demo = () => {
+  return (
+    <div>
+      <AnimatedTitle 
+        title="Neural Dynamics"
+        subtitle="Experience the future of interactive design with dynamic pattern generation"
+      />
+    </div>
+  );
+};
+
+export { Demo };

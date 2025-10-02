@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { GradientButton } from "@/components/ui/gradient-button";
 import { 
   Mail, 
   Phone, 
@@ -46,29 +46,6 @@ const contactInfo = [
   }
 ];
 
-const contactReasons = [
-  {
-    icon: Building2,
-    title: "For Employers",
-    description: "Looking to hire talent or need staffing solutions?",
-    cta: "Hire Talent",
-    href: "/employers"
-  },
-  {
-    icon: Users,
-    title: "For Candidates",
-    description: "Seeking career opportunities or coaching services?",
-    cta: "Find Jobs",
-    href: "/candidates"
-  },
-  {
-    icon: MessageSquare,
-    title: "General Inquiry",
-    description: "Have questions about our services?",
-    cta: "Get Info",
-    href: "#contact-form"
-  }
-];
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -116,7 +93,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-bg-primary">
+    <section id="contact" className="py-20 bg-white dark:bg-gray-800">
       <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
         <motion.div
@@ -126,18 +103,18 @@ export function ContactSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 bg-bg-brand-primary text-text-brand-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 bg-brand-50 text-brand-900 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <MessageSquare className="w-4 h-4" />
             Get In Touch
           </div>
-          <h2 className="text-display-lg font-display font-bold text-text-primary mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Ready to{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-800">
+            <span className="text-brand-600 dark:text-brand-400">
               Get Started?
             </span>
           </h2>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-            Whether you're looking to hire top talent or advance your career, we're here to help. Get in touch with our team today.
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            Whether you're looking for healthcare IT solutions, government services, or career advancement, we're here to help. Get in touch with our team today.
           </p>
         </motion.div>
 
@@ -151,7 +128,7 @@ export function ContactSection() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-display-sm font-display font-bold text-text-primary mb-6">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Contact Information
               </h3>
               <div className="space-y-6">
@@ -163,19 +140,19 @@ export function ContactSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex items-start gap-4 p-4 rounded-lg hover:bg-bg-secondary transition-colors duration-300 group"
+                    className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-300 group"
                   >
-                    <div className="w-12 h-12 bg-bg-brand-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <info.icon className="w-6 h-6 text-text-brand-primary" />
+                    <div className="w-12 h-12 bg-brand-50 dark:bg-brand-900/30 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <info.icon className="w-6 h-6 text-brand-600 dark:text-brand-400" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-text-primary mb-1">
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-1">
                         {info.title}
                       </h4>
-                      <p className="text-text-secondary text-sm mb-1">
+                      <p className="text-gray-600 dark:text-gray-400 text-sm mb-1">
                         {info.description}
                       </p>
-                      <p className="text-text-primary font-medium">
+                      <p className="text-gray-900 dark:text-white font-medium">
                         {info.value}
                       </p>
                     </div>
@@ -184,40 +161,6 @@ export function ContactSection() {
               </div>
             </div>
 
-            {/* Quick Actions */}
-            <div>
-              <h4 className="text-lg font-semibold text-text-primary mb-4">
-                Quick Actions
-              </h4>
-              <div className="space-y-3">
-                {contactReasons.map((reason, index) => (
-                  <motion.a
-                    key={reason.title}
-                    href={reason.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="block p-4 bg-bg-secondary rounded-lg border border-border-primary hover:border-border-brand transition-all duration-300 hover:shadow-md"
-                  >
-                    <div className="flex items-center gap-3">
-                      <reason.icon className="w-5 h-5 text-text-brand-primary" />
-                      <div className="flex-1">
-                        <h5 className="font-medium text-text-primary">
-                          {reason.title}
-                        </h5>
-                        <p className="text-sm text-text-secondary">
-                          {reason.description}
-                        </p>
-                      </div>
-                      <span className="text-sm font-medium text-text-brand-primary">
-                        {reason.cta}
-                      </span>
-                    </div>
-                  </motion.a>
-                ))}
-              </div>
-            </div>
           </motion.div>
 
           {/* Contact Form */}
@@ -228,8 +171,8 @@ export function ContactSection() {
             viewport={{ once: true }}
             className="lg:col-span-2"
           >
-            <div className="bg-bg-secondary rounded-2xl p-8 border border-border-primary">
-              <h3 className="text-display-sm font-display font-bold text-text-primary mb-6">
+            <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Send us a Message
               </h3>
 
@@ -240,10 +183,10 @@ export function ContactSection() {
                   className="text-center py-12"
                 >
                   <CheckCircle className="w-16 h-16 text-brand-600 mx-auto mb-4" />
-                  <h4 className="text-xl font-semibold text-text-primary mb-2">
+                  <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                     Message Sent Successfully!
                   </h4>
-                  <p className="text-text-secondary">
+                  <p className="text-gray-600 dark:text-gray-400">
                     Thank you for reaching out. We'll get back to you within 24 hours.
                   </p>
                 </motion.div>
@@ -251,7 +194,7 @@ export function ContactSection() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-2">
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
                         Full Name *
                       </label>
                       <input
@@ -261,12 +204,12 @@ export function ContactSection() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-border-primary rounded-lg bg-bg-primary text-text-primary placeholder-text-placeholder focus:border-border-brand focus:ring-2 focus:ring-brand-500/20 transition-colors duration-300"
+                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-colors duration-300"
                         placeholder="Your full name"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-text-primary mb-2">
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
                         Email Address *
                       </label>
                       <input
@@ -276,7 +219,7 @@ export function ContactSection() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-border-primary rounded-lg bg-bg-primary text-text-primary placeholder-text-placeholder focus:border-border-brand focus:ring-2 focus:ring-brand-500/20 transition-colors duration-300"
+                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-colors duration-300"
                         placeholder="your.email@example.com"
                       />
                     </div>
@@ -284,7 +227,7 @@ export function ContactSection() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="company" className="block text-sm font-medium text-text-primary mb-2">
+                      <label htmlFor="company" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
                         Company
                       </label>
                       <input
@@ -293,12 +236,12 @@ export function ContactSection() {
                         name="company"
                         value={formData.company}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-border-primary rounded-lg bg-bg-primary text-text-primary placeholder-text-placeholder focus:border-border-brand focus:ring-2 focus:ring-brand-500/20 transition-colors duration-300"
+                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-colors duration-300"
                         placeholder="Your company name"
                       />
                     </div>
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-text-primary mb-2">
+                      <label htmlFor="phone" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
                         Phone Number
                       </label>
                       <input
@@ -307,14 +250,14 @@ export function ContactSection() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-border-primary rounded-lg bg-bg-primary text-text-primary placeholder-text-placeholder focus:border-border-brand focus:ring-2 focus:ring-brand-500/20 transition-colors duration-300"
+                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-colors duration-300"
                         placeholder="+1 (555) 123-4567"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="reason" className="block text-sm font-medium text-text-primary mb-2">
+                    <label htmlFor="reason" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
                       How can we help? *
                     </label>
                     <select
@@ -323,19 +266,20 @@ export function ContactSection() {
                       value={formData.reason}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-border-primary rounded-lg bg-bg-primary text-text-primary focus:border-border-brand focus:ring-2 focus:ring-brand-500/20 transition-colors duration-300"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-colors duration-300"
                     >
                       <option value="">Select a reason</option>
-                      <option value="hire-talent">I want to hire talent</option>
-                      <option value="find-job">I'm looking for a job</option>
-                      <option value="career-coaching">I need career coaching</option>
-                      <option value="staff-augmentation">I need staff augmentation</option>
+                      <option value="healthcare-it">Healthcare IT Solutions</option>
+                      <option value="government-services">Government Services</option>
+                      <option value="ai-ml-solutions">AI & ML Solutions</option>
+                      <option value="cybersecurity">Cybersecurity Services</option>
+                      <option value="career-services">Career Services</option>
                       <option value="general-inquiry">General inquiry</option>
                     </select>
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-text-primary mb-2">
+                    <label htmlFor="subject" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
                       Subject *
                     </label>
                     <input
@@ -345,13 +289,13 @@ export function ContactSection() {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-border-primary rounded-lg bg-bg-primary text-text-primary placeholder-text-placeholder focus:border-border-brand focus:ring-2 focus:ring-brand-500/20 transition-colors duration-300"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-colors duration-300"
                       placeholder="Brief subject line"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-text-primary mb-2">
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
                       Message *
                     </label>
                     <textarea
@@ -361,28 +305,30 @@ export function ContactSection() {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className="w-full px-4 py-3 border border-border-primary rounded-lg bg-bg-primary text-text-primary placeholder-text-placeholder focus:border-border-brand focus:ring-2 focus:ring-brand-500/20 transition-colors duration-300 resize-none"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-colors duration-300 resize-none"
                       placeholder="Tell us more about your needs..."
                     />
                   </div>
 
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-bg-brand-solid hover:bg-bg-brand-solid_hover text-text-primary_on-brand py-4 text-lg font-semibold rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? (
-                      <div className="flex items-center justify-center">
-                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
-                        Sending...
+                      <div className="flex justify-center">
+                        <GradientButton
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="w-fit py-4 px-8 text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                          {isSubmitting ? (
+                            <div className="flex items-center justify-center">
+                              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                              Sending...
+                            </div>
+                          ) : (
+                            <div className="flex items-center justify-center">
+                              <Send className="w-5 h-5 mr-2" />
+                              Send Message
+                            </div>
+                          )}
+                        </GradientButton>
                       </div>
-                    ) : (
-                      <div className="flex items-center justify-center">
-                        <Send className="w-5 h-5 mr-2" />
-                        Send Message
-                      </div>
-                    )}
-                  </Button>
                 </form>
               )}
             </div>

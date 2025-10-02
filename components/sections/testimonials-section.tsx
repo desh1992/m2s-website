@@ -77,18 +77,18 @@ export function TestimonialsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 bg-bg-brand-primary text-text-brand-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 bg-brand-50 text-brand-900 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Star className="w-4 h-4" />
             Client Success Stories
           </div>
-          <h2 className="text-display-lg font-display font-bold text-text-primary mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             What Our{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-800">
+            <span className="text-brand-600 dark:text-brand-400">
               Clients & Candidates
             </span>{" "}
             Say
           </h2>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Don't just take our word for it. Here's what real people have to say about working with M2S Tech Solutions.
           </p>
         </motion.div>
@@ -104,10 +104,10 @@ export function TestimonialsSection() {
               viewport={{ once: true }}
               className="group"
             >
-              <div className="bg-bg-secondary rounded-2xl p-8 h-full border border-border-primary hover:border-border-brand transition-all duration-300 hover:shadow-lg relative">
+              <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 h-full border border-gray-200 dark:border-gray-800 hover:border-brand-500 transition-all duration-300 hover:shadow-lg relative">
                 {/* Quote Icon */}
                 <div className="absolute top-6 right-6 opacity-10">
-                  <Quote className="w-8 h-8 text-text-primary" />
+                  <Quote className="w-8 h-8 text-gray-900 dark:text-white" />
                 </div>
 
                 {/* Rating */}
@@ -118,7 +118,7 @@ export function TestimonialsSection() {
                 </div>
 
                 {/* Content */}
-                <p className="text-text-secondary mb-6 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
                   "{testimonial.content}"
                 </p>
 
@@ -126,20 +126,20 @@ export function TestimonialsSection() {
                 <div className="flex items-center gap-3">
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
                     testimonial.type === 'client' 
-                      ? 'bg-bg-brand-primary' 
-                      : 'bg-bg-success-primary'
+                      ? 'bg-brand-50 dark:bg-brand-900/30' 
+                      : 'bg-green-50 dark:bg-green-900/30'
                   }`}>
                     {testimonial.type === 'client' ? (
-                      <Building2 className="w-6 h-6 text-text-brand-primary" />
+                      <Building2 className="w-6 h-6 text-brand-600 dark:text-brand-400" />
                     ) : (
-                      <User className="w-6 h-6 text-text-success-primary" />
+                      <User className="w-6 h-6 text-green-600 dark:text-green-400" />
                     )}
                   </div>
                   <div>
-                    <div className="font-semibold text-text-primary">
+                    <div className="font-semibold text-gray-900 dark:text-white">
                       {testimonial.author}
                     </div>
-                    <div className="text-sm text-text-secondary">
+                    <div className="text-sm text-gray-600 dark:text-gray-400">
                       {testimonial.role} at {testimonial.company}
                     </div>
                   </div>
@@ -157,7 +157,7 @@ export function TestimonialsSection() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h3 className="text-display-sm font-display font-bold text-text-primary mb-8">
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
             Trusted by Leading Companies
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center opacity-60">
@@ -170,8 +170,8 @@ export function TestimonialsSection() {
                 viewport={{ once: true }}
                 className="text-center"
               >
-                <div className="bg-bg-tertiary rounded-lg p-4 h-16 flex items-center justify-center">
-                  <span className="text-sm font-medium text-text-secondary">
+                <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 h-16 flex items-center justify-center">
+                  <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
                     {logo}
                   </span>
                 </div>

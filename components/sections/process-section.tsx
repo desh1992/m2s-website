@@ -111,7 +111,7 @@ export function ProcessSection() {
           </div>
           <h2 className="text-display-lg font-display font-bold text-text-primary mb-6">
             How We{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-800">
+            <span className="text-brand-600 dark:text-brand-400">
               Deliver Results
             </span>
           </h2>

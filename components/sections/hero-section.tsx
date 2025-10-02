@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { GradientButton } from "@/components/ui/gradient-button";
 import { ArrowRight, Users, Building2, Target } from "lucide-react";
 
 function FloatingPaths({ position }: { position: number }) {
@@ -121,7 +121,7 @@ function FloatingPaths({ position }: { position: number }) {
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-neutral-950">
+    <section id="hero" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-neutral-950">
       {/* Animated Background Paths */}
       <div className="absolute inset-0">
         <FloatingPaths position={1} />
@@ -193,9 +193,7 @@ export function HeroSection() {
                           stiffness: 150,
                           damping: 25,
                         }}
-                        className="inline-block text-transparent bg-clip-text 
-                        bg-gradient-to-r from-neutral-900 to-neutral-700/80 
-                        dark:from-white dark:to-white/80"
+                        className="inline-block text-gray-900 dark:text-white"
                       >
                         {letter}
                       </motion.span>
@@ -211,7 +209,7 @@ export function HeroSection() {
                 transition={{ delay: 0.8, duration: 0.8 }}
                 className="text-lg md:text-xl lg:text-2xl text-neutral-600 dark:text-neutral-400 max-w-5xl mx-auto leading-relaxed"
               >
-                Your Job is Our Business! Professional recruitment services and staff augmentation solutions that connect top tech talent with leading companies.
+                Innovative IT Solutions for Healthcare & Government. Transform your organization with AI-powered healthcare solutions, advanced cybersecurity, and strategic business intelligence.
               </motion.p>
             </div>
           </div>
@@ -228,16 +226,9 @@ export function HeroSection() {
               dark:from-white/10 dark:to-black/10 p-px rounded-2xl backdrop-blur-lg 
               overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              <Button
-                variant="ghost"
-                className="rounded-[1.15rem] px-8 py-6 text-lg font-semibold backdrop-blur-md 
-                bg-white/95 hover:bg-white/100 dark:bg-black/95 dark:hover:bg-black/100 
-                text-black dark:text-white transition-all duration-300 
-                group-hover:-translate-y-0.5 border border-black/10 dark:border-white/10
-                hover:shadow-md dark:hover:shadow-neutral-800/50"
-              >
+              <GradientButton className="text-lg font-semibold group-hover:-translate-y-0.5">
                 <span className="opacity-90 group-hover:opacity-100 transition-opacity">
-                  Discover Excellence
+                  Explore Services
                 </span>
                 <span
                   className="ml-3 opacity-70 group-hover:opacity-100 group-hover:translate-x-1.5 
@@ -245,7 +236,7 @@ export function HeroSection() {
                 >
                   →
                 </span>
-              </Button>
+              </GradientButton>
             </div>
           </motion.div>
         </motion.div>

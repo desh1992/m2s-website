@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { GradientButton } from "@/components/ui/gradient-button";
 import { 
   Menu, 
   X, 
@@ -12,7 +12,8 @@ import {
   UserCheck,
   Briefcase,
   BookOpen,
-  Phone
+  Phone,
+  Home
 } from "lucide-react";
 
 export function MainNav() {
@@ -21,28 +22,10 @@ export function MainNav() {
 
   const navigation = [
     {
-      name: "For Employers",
-      href: "/employers",
-      icon: Building2,
-      description: "Staffing & Recruitment Solutions",
-      items: [
-        { name: "Staff Augmentation", href: "/services/staff-augmentation" },
-        { name: "Direct Hire", href: "/services/direct-hire" },
-        { name: "Contract Staffing", href: "/services/contract-staffing" },
-        { name: "RPO Services", href: "/services/rpo" },
-      ]
-    },
-    {
-      name: "For Candidates",
-      href: "/candidates",
-      icon: Users,
-      description: "Career Opportunities & Services",
-      items: [
-        { name: "Browse Jobs", href: "/jobs" },
-        { name: "Career Coaching", href: "/services/career-coaching" },
-        { name: "Resume Review", href: "/services/resume-review" },
-        { name: "Interview Prep", href: "/services/interview-prep" },
-      ]
+      name: "Home",
+      href: "/#hero",
+      icon: Home,
+      description: "Back to Homepage",
     },
     {
       name: "Services",
@@ -50,21 +33,26 @@ export function MainNav() {
       icon: Briefcase,
       description: "Our Complete Service Portfolio",
       items: [
-        { name: "All Services", href: "/services" },
-        { name: "Technology Focus", href: "/services/technology" },
-        { name: "Industry Expertise", href: "/services/industries" },
-        { name: "Process Overview", href: "/how-we-work" },
+        { name: "Healthcare IT Services", href: "/services/healthcare" },
+        { name: "County & Government Services", href: "/services/government" },
+        { name: "ML & AI Services", href: "/services/ai-ml" },
+        { name: "Cybersecurity Services", href: "/services/cybersecurity" },
+        { name: "Strategic Business Services", href: "/services/strategic" },
+        { name: "Custom Development & Innovation", href: "/services/custom-development" },
+        { name: "Career Consultation", href: "/services/career-consultation" },
+        { name: "Professional Resume Review", href: "/services/resume-review" },
+        { name: "Career Coaching", href: "/services/career-coaching" },
       ]
     },
     {
       name: "Resources",
       href: "/resources",
       icon: BookOpen,
-      description: "Insights & Career Guidance",
+      description: "Insights & Technical Guidance",
       items: [
         { name: "Blog", href: "/blog" },
-        { name: "Career Tips", href: "/resources/career-tips" },
-        { name: "Market Insights", href: "/resources/market-insights" },
+        { name: "Case Studies", href: "/resources/case-studies" },
+        { name: "Technical Insights", href: "/resources/technical" },
         { name: "Success Stories", href: "/resources/success-stories" },
       ]
     },
@@ -73,12 +61,6 @@ export function MainNav() {
       href: "/about",
       icon: UserCheck,
       description: "Our Story & Team",
-    },
-    {
-      name: "Contact",
-      href: "/contact",
-      icon: Phone,
-      description: "Get In Touch",
     },
   ];
 
@@ -107,20 +89,28 @@ export function MainNav() {
                 onMouseEnter={() => setActiveDropdown(item.name)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button
-                  className="flex items-center space-x-1 text-text-secondary hover:text-text-primary transition-colors duration-200 font-medium"
-                  onClick={() => item.items && setActiveDropdown(
-                    activeDropdown === item.name ? null : item.name
-                  )}
-                >
-                  <item.icon className="w-4 h-4" />
-                  <span>{item.name}</span>
-                  {item.items && (
+                {item.items ? (
+                  <button
+                    className="flex items-center space-x-1 text-text-secondary hover:text-text-primary transition-colors duration-200 font-medium"
+                    onClick={() => setActiveDropdown(
+                      activeDropdown === item.name ? null : item.name
+                    )}
+                  >
+                    <item.icon className="w-4 h-4" />
+                    <span>{item.name}</span>
                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${
                       activeDropdown === item.name ? 'rotate-180' : ''
                     }`} />
-                  )}
-                </button>
+                  </button>
+                ) : (
+                  <a
+                    href={item.href}
+                    className="flex items-center space-x-1 text-text-secondary hover:text-text-primary transition-colors duration-200 font-medium"
+                  >
+                    <item.icon className="w-4 h-4" />
+                    <span>{item.name}</span>
+                  </a>
+                )}
 
                 {/* Dropdown Menu */}
                 <AnimatePresence>
@@ -130,10 +120,10 @@ export function MainNav() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-64 bg-bg-primary border border-border-primary rounded-lg shadow-xl z-50"
+                      className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg shadow-xl z-50"
                     >
                       <div className="p-4">
-                        <div className="text-sm font-semibold text-text-primary mb-3">
+                        <div className="text-sm font-semibold text-gray-900 dark:text-white mb-3">
                           {item.description}
                         </div>
                         <div className="space-y-2">
@@ -141,7 +131,7 @@ export function MainNav() {
                             <a
                               key={subItem.name}
                               href={subItem.href}
-                              className="block px-3 py-2 text-sm text-text-secondary hover:text-text-primary hover:bg-bg-secondary rounded-md transition-colors duration-200"
+                              className="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md transition-colors duration-200"
                             >
                               {subItem.name}
                             </a>
@@ -155,23 +145,14 @@ export function MainNav() {
             ))}
           </div>
 
-          {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <Button
-              variant="outline"
-              size="sm"
-              className="border-border-brand text-text-brand-primary hover:bg-bg-brand-primary"
+          {/* CTA Button */}
+          <div className="hidden lg:flex items-center">
+            <GradientButton
+              className="text-sm"
             >
-              <Users className="w-4 h-4 mr-2" />
-              Find Jobs
-            </Button>
-            <Button
-              size="sm"
-              className="bg-bg-brand-solid hover:bg-bg-brand-solid_hover text-text-primary_on-brand"
-            >
-              <Building2 className="w-4 h-4 mr-2" />
-              Hire Talent
-            </Button>
+              <Phone className="w-4 h-4 mr-2" />
+              Contact Us
+            </GradientButton>
           </div>
 
           {/* Mobile Menu Button */}
@@ -221,23 +202,15 @@ export function MainNav() {
                   </div>
                 ))}
                 
-                {/* Mobile CTA Buttons */}
-                <div className="pt-4 border-t border-border-primary space-y-3">
-                  <Button
-                    variant="outline"
-                    className="w-full border-border-brand text-text-brand-primary hover:bg-bg-brand-primary"
+                {/* Mobile CTA Button */}
+                <div className="pt-4 border-t border-border-primary">
+                  <GradientButton
+                    className="w-full"
                     onClick={() => setIsOpen(false)}
                   >
-                    <Users className="w-4 h-4 mr-2" />
-                    Find Jobs
-                  </Button>
-                  <Button
-                    className="w-full bg-bg-brand-solid hover:bg-bg-brand-solid_hover text-text-primary_on-brand"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <Building2 className="w-4 h-4 mr-2" />
-                    Hire Talent
-                  </Button>
+                    <Phone className="w-4 h-4 mr-2" />
+                    Contact Us
+                  </GradientButton>
                 </div>
               </div>
             </motion.div>

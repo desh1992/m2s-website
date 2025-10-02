@@ -1,3 +1,9 @@
 {
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/services/cybersecurity/page": "app/services/cybersecurity/page.js",
+  "/about/page": "app/about/page.js",
+  "/services/healthcare/page": "app/services/healthcare/page.js",
+  "/services/government/page": "app/services/government/page.js",
+  "/services/ai-ml/page": "app/services/ai-ml/page.js",
+  "/services/strategic/page": "app/services/strategic/page.js"
 }
