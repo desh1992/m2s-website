@@ -1,32 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, Lock, Eye, AlertTriangle, CheckCircle, ArrowRight } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatedText } from "@/components/ui/animated-text";
+import { CybersecurityMarqueeDemo } from "@/components/ui/cybersecurity-marquee-demo";
+import { CybersecurityFeature } from "@/components/ui/cybersecurity-bento-grid";
 
-const features = [
-  {
-    icon: Shield,
-    title: "Threat Detection & Response",
-    description: "Advanced monitoring and rapid response to cybersecurity threats and incidents."
-  },
-  {
-    icon: Lock,
-    title: "HIPAA Compliance",
-    description: "Comprehensive compliance solutions for healthcare data protection and regulatory requirements."
-  },
-  {
-    icon: Eye,
-    title: "Security Monitoring",
-    description: "24/7 monitoring and analysis of your security infrastructure and data access patterns."
-  },
-  {
-    icon: AlertTriangle,
-    title: "Risk Assessment",
-    description: "Comprehensive security audits and risk assessments to identify vulnerabilities."
-  }
-];
 
 const solutions = [
   {
@@ -63,70 +43,105 @@ export function CybersecurityServicesShowcaseSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <Shield className="w-4 h-4" />
-            Cybersecurity Services
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-6">
+          <h2 className="text-4xl md:text-5xl tracking-tighter font-regular text-neutral-900 dark:text-white mb-6">
             <AnimatedText 
               text="Protecting Your Data with Advanced Security"
               className="text-neutral-900 dark:text-white"
             />
           </h2>
-          <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
+          <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-3xl mx-auto">
             Comprehensive cybersecurity solutions designed to protect healthcare and government organizations from evolving threats and ensure regulatory compliance.
           </p>
         </motion.div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          {features.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-green-50 dark:bg-green-900/30 rounded-2xl p-6 text-center border border-green-100 dark:border-green-900 hover:border-green-300 dark:hover:border-green-700 transition-all duration-300"
-            >
-              <div className="w-12 h-12 bg-green-200 dark:bg-green-800/50 text-green-700 dark:text-green-300 rounded-full flex items-center justify-center mx-auto mb-4">
-                <feature.icon className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-2">
-                {feature.title}
+        {/* Solutions Section */}
+        <div className="space-y-20">
+          {/* First Row: Image Left, Text Right */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          >
+            <div className="order-2 lg:order-1">
+              <img 
+                src="/ad-cybersecurity.jpg" 
+                alt="Advanced Cybersecurity Services"
+                className="w-full h-80 object-cover rounded-2xl shadow-lg"
+              />
+            </div>
+            <div className="order-1 lg:order-2">
+              <h3 className="text-2xl md:text-3xl tracking-tighter font-regular text-neutral-900 dark:text-white mb-6 text-center">
+                Advanced Cybersecurity Services
               </h3>
-              <p className="text-neutral-600 dark:text-neutral-400 text-sm">
-                {feature.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Solution Comparison */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {solutions.map((solution, index) => (
-            <motion.div
-              key={solution.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              className="bg-white dark:bg-neutral-900 rounded-2xl p-8 border border-neutral-200 dark:border-neutral-800 shadow-lg"
-            >
-              <h3 className="text-2xl font-bold text-neutral-900 dark:text-white mb-6">
-                {solution.title}
-              </h3>
-              <ul className="space-y-4 mb-8">
-                {solution.features.map((feature, featureIndex) => (
+              <ul className="space-y-4">
+                {solutions[0].features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start text-neutral-700 dark:text-neutral-300">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                    <span>{feature}</span>
+                    <span className="text-lg">{feature}</span>
                   </li>
                 ))}
               </ul>
-            </motion.div>
-          ))}
+            </div>
+          </motion.div>
+
+          {/* Second Row: Text Left, Image Right */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          >
+            <div className="order-1">
+              <h3 className="text-2xl md:text-3xl tracking-tighter font-regular text-neutral-900 dark:text-white mb-6 text-center">
+                Compliance & Governance
+              </h3>
+              <ul className="space-y-4">
+                {solutions[1].features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-start text-neutral-700 dark:text-neutral-300">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                    <span className="text-lg">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="order-2">
+              <img 
+                src="/comp.jpg" 
+                alt="Compliance & Governance Systems"
+                className="w-full h-80 object-cover rounded-2xl shadow-lg"
+              />
+            </div>
+          </motion.div>
         </div>
+
+        {/* Bento Grid Features */}
+        <CybersecurityFeature />
+
+        {/* Marquee Section */}
+        <div className="mt-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <h3 className="text-2xl md:text-3xl tracking-tighter font-regular text-neutral-900 dark:text-white mb-4">
+              Cybersecurity Technologies We Work With
+            </h3>
+            <p className="text-lg leading-relaxed tracking-tight text-muted-foreground">
+              Advanced security tools and platforms protecting modern organizations
+            </p>
+          </motion.div>
+        </div>
+      </div>
+      
+      {/* Full-width Marquee outside container */}
+      <div className="w-full overflow-visible">
+        <CybersecurityMarqueeDemo />
       </div>
     </section>
   );

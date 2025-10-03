@@ -29,11 +29,6 @@ const footerLinks = {
     { name: "Strategic Business Services", href: "/services/strategic" },
     { name: "Custom Development", href: "/services/custom-development" }
   ],
-  "Career Services": [
-    { name: "Career Consultation", href: "/services/career-consultation" },
-    { name: "Resume Review", href: "/services/resume-review" },
-    { name: "Career Coaching", href: "/services/career-coaching" }
-  ],
   "Company": [
     { name: "About Us", href: "/about" },
     { name: "Contact", href: "/contact" }
@@ -60,13 +55,6 @@ const quickActions = [
     description: "Healthcare & Government IT",
     href: "/services",
     color: "bg-bg-brand-solid hover:bg-bg-brand-solid_hover text-text-primary_on-brand"
-  },
-  {
-    icon: Users,
-    title: "Career Services",
-    description: "Professional development",
-    href: "/services/career-consultation",
-    color: "border-border-brand text-text-brand-primary hover:bg-bg-brand-primary"
   },
   {
     icon: PhoneIcon,

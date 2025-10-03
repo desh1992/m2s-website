@@ -9,14 +9,9 @@ import {
   Shield,
   TrendingUp,
   Code,
-  Users,
-  Lightbulb,
   ArrowRight,
   CheckCircle,
-  Activity,
-  Lock,
-  FileText,
-  Target
+  Activity
 } from "lucide-react";
 
 const services = [
@@ -79,36 +74,6 @@ const services = [
     href: "/services/custom-development",
     color: "from-cyan-500 to-blue-600",
     bgColor: "bg-cyan-50 dark:bg-cyan-950/20"
-  },
-  {
-    icon: Users,
-    title: "Career Consultation",
-    description: "Professional career guidance and strategic planning for healthcare IT and government technology professionals.",
-    features: ["1-on-1 Consultation", "Career Strategy", "Industry Insights", "Professional Development"],
-    cta: "Get Consultation",
-    href: "/services/career-consultation",
-    color: "from-pink-500 to-rose-600",
-    bgColor: "bg-pink-50 dark:bg-pink-950/20"
-  },
-  {
-    icon: FileText,
-    title: "Professional Resume Review",
-    description: "Expert resume optimization and review services to help you stand out in healthcare IT and government roles.",
-    features: ["Resume Analysis", "ATS Optimization", "Industry-Specific Formatting", "Professional Feedback"],
-    cta: "Review Resume",
-    href: "/services/resume-review",
-    color: "from-indigo-500 to-purple-600",
-    bgColor: "bg-indigo-50 dark:bg-indigo-950/20"
-  },
-  {
-    icon: Target,
-    title: "Career Coaching",
-    description: "Comprehensive career coaching and development programs for technology professionals in healthcare and government sectors.",
-    features: ["Career Planning", "Skill Development", "Interview Preparation", "Leadership Coaching"],
-    cta: "Start Coaching",
-    href: "/services/career-coaching",
-    color: "from-emerald-500 to-teal-600",
-    bgColor: "bg-emerald-50 dark:bg-emerald-950/20"
   }
 ];
 

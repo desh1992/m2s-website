@@ -39,9 +39,6 @@ export function MainNav() {
         { name: "Cybersecurity Services", href: "/services/cybersecurity" },
         { name: "Strategic Business Services", href: "/services/strategic" },
         { name: "Custom Development & Innovation", href: "/services/custom-development" },
-        { name: "Career Consultation", href: "/services/career-consultation" },
-        { name: "Professional Resume Review", href: "/services/resume-review" },
-        { name: "Career Coaching", href: "/services/career-coaching" },
       ]
     },
     {

@@ -1,7 +1,7 @@
 {
-  "/page": "app/page.js",
-  "/services/healthcare/page": "app/services/healthcare/page.js",
   "/services/government/page": "app/services/government/page.js",
+  "/services/custom-development/page": "app/services/custom-development/page.js",
+  "/services/career-consultation/page": "app/services/career-consultation/page.js",
   "/services/ai-ml/page": "app/services/ai-ml/page.js",
-  "/services/strategic/page": "app/services/strategic/page.js"
+  "/page": "app/page.js"
 }

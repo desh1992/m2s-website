@@ -162,8 +162,12 @@ export function AiMlServicesShowcaseSection() {
               Cutting-edge technologies and frameworks for modern AI/ML solutions
             </p>
           </motion.div>
-          <MarqueeDemo />
         </div>
+      </div>
+      
+      {/* Full-width Marquee outside container */}
+      <div className="w-full overflow-visible">
+        <MarqueeDemo />
       </div>
     </section>
   );

@@ -3,44 +3,12 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { AnimatedText } from "@/components/ui/animated-text";
+import { HealthcareMarqueeDemo } from "@/components/ui/healthcare-marquee-demo";
+import { HealthcareFeature } from "@/components/ui/healthcare-bento-grid";
 import {
-  Heart,
-  Brain,
-  Activity,
-  FileText,
-  TrendingUp,
-  Shield,
-  ArrowRight,
-  Check
+  CheckCircle
 } from "lucide-react";
 
-const healthcareFeatures = [
-  {
-    icon: Brain,
-    title: "AI-Powered Diagnostics",
-    description: "Machine learning models for predictive care and early disease detection"
-  },
-  {
-    icon: Activity,
-    title: "Patient Monitoring",
-    description: "Real-time health monitoring with intelligent alert systems"
-  },
-  {
-    icon: FileText,
-    title: "EHR Integration",
-    description: "Seamless electronic health record management and optimization"
-  },
-  {
-    icon: TrendingUp,
-    title: "Predictive Analytics",
-    description: "Data-driven insights for improved patient outcomes"
-  },
-  {
-    icon: Shield,
-    title: "HIPAA Compliance",
-    description: "Enterprise-grade security and regulatory compliance"
-  }
-];
 
 const solutions = [
   {
@@ -80,88 +48,106 @@ export function HealthcareShowcase() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <Heart className="w-4 h-4" />
-            Healthcare IT Excellence
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-6">
+          <h2 className="text-4xl md:text-5xl tracking-tighter font-regular text-neutral-900 dark:text-white mb-6">
             <AnimatedText 
               text="Transforming Healthcare with Advanced Technology"
               className="text-neutral-900 dark:text-white"
             />
           </h2>
-          <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
+          <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-3xl mx-auto">
             Innovative solutions that improve patient care, streamline operations, and ensure regulatory compliance across healthcare organizations.
           </p>
         </motion.div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
-          {healthcareFeatures.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white/80 dark:bg-neutral-900/80 backdrop-blur-sm rounded-xl p-6 border border-neutral-200 dark:border-neutral-800 hover:border-red-300 dark:hover:border-red-700 transition-all duration-300"
-            >
-              <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-pink-600 rounded-lg flex items-center justify-center mb-4">
-                <feature.icon className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="font-semibold text-neutral-900 dark:text-white mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                {feature.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
 
-        {/* Solutions Comparison */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {solutions.map((solution, index) => (
-            <motion.div
-              key={solution.title}
-              initial={{ opacity: 0, x: index === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className={`relative rounded-2xl p-8 ${
-                solution.highlight
-                  ? 'bg-gradient-to-br from-red-500 to-pink-600 text-white'
-                  : 'bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800'
-              }`}
-            >
-              {solution.highlight && (
-                <div className="absolute -top-4 left-8 bg-yellow-400 text-yellow-900 px-4 py-1 rounded-full text-sm font-semibold">
-                  Most Popular
-                </div>
-              )}
-              
-              <h3 className={`text-2xl font-bold mb-6 ${
-                solution.highlight ? 'text-white' : 'text-neutral-900 dark:text-white'
-              }`}>
-                {solution.title}
+        {/* Solutions Section */}
+        <div className="space-y-20">
+          {/* First Row: Image Left, Text Right */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          >
+            <div className="order-2 lg:order-1">
+              <img 
+                src="/hc-sol.jpg" 
+                alt="AI-Enhanced Healthcare Solutions"
+                className="w-full h-80 object-cover rounded-2xl shadow-lg"
+              />
+            </div>
+            <div className="order-1 lg:order-2">
+              <h3 className="text-2xl md:text-3xl tracking-tighter font-regular text-neutral-900 dark:text-white mb-6 text-center">
+                AI-Enhanced Healthcare Solutions
               </h3>
-              
-              <ul className="space-y-4 mb-8">
-                {solution.features.map((feature, fIndex) => (
-                  <li key={fIndex} className="flex items-start gap-3">
-                    <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
-                      solution.highlight ? 'text-white' : 'text-red-600 dark:text-red-400'
-                    }`} />
-                    <span className={solution.highlight ? 'text-red-50' : 'text-neutral-600 dark:text-neutral-400'}>
-                      {feature}
-                    </span>
+              <ul className="space-y-4">
+                {solutions[0].features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-start text-neutral-700 dark:text-neutral-300">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                    <span className="text-lg">{feature}</span>
                   </li>
                 ))}
               </ul>
-              
-            </motion.div>
-          ))}
+            </div>
+          </motion.div>
+
+          {/* Second Row: Text Left, Image Right */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          >
+            <div className="order-1">
+              <h3 className="text-2xl md:text-3xl tracking-tighter font-regular text-neutral-900 dark:text-white mb-6 text-center">
+                Traditional Healthcare IT
+              </h3>
+              <ul className="space-y-4">
+                {solutions[1].features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-start text-neutral-700 dark:text-neutral-300">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                    <span className="text-lg">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="order-2">
+              <img 
+                src="/trad-it.jpg" 
+                alt="Traditional Healthcare IT Systems"
+                className="w-full h-80 object-cover rounded-2xl shadow-lg"
+              />
+            </div>
+          </motion.div>
         </div>
+
+        {/* Bento Grid Features */}
+        <HealthcareFeature />
+
+        {/* Marquee Section */}
+        <div className="mt-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <h3 className="text-2xl md:text-3xl tracking-tighter font-regular text-neutral-900 dark:text-white mb-4">
+              Healthcare Technologies We Work With
+            </h3>
+            <p className="text-lg leading-relaxed tracking-tight text-muted-foreground">
+              Cutting-edge technologies powering modern healthcare solutions
+            </p>
+          </motion.div>
+        </div>
+      </div>
+      
+      {/* Full-width Marquee outside container */}
+      <div className="w-full overflow-visible">
+        <HealthcareMarqueeDemo />
       </div>
     </section>
   );
