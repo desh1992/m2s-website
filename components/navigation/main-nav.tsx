@@ -11,7 +11,6 @@ import {
   ChevronDown,
   UserCheck,
   Briefcase,
-  BookOpen,
   Phone,
   Home
 } from "lucide-react";
@@ -39,18 +38,6 @@ export function MainNav() {
         { name: "Cybersecurity Services", href: "/services/cybersecurity" },
         { name: "Strategic Business Services", href: "/services/strategic" },
         { name: "Custom Development & Innovation", href: "/services/custom-development" },
-      ]
-    },
-    {
-      name: "Resources",
-      href: "/resources",
-      icon: BookOpen,
-      description: "Insights & Technical Guidance",
-      items: [
-        { name: "Blog", href: "/blog" },
-        { name: "Case Studies", href: "/resources/case-studies" },
-        { name: "Technical Insights", href: "/resources/technical" },
-        { name: "Success Stories", href: "/resources/success-stories" },
       ]
     },
     {
